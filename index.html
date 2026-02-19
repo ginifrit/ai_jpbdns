@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Komprehensif AI | JPBD Negeri Sembilan</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+        
+        .glass-card { background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.5); }
+        .gradient-text { background-clip: text; -webkit-background-clip: text; color: transparent; background-image: linear-gradient(to right, #1e40af, #3b82f6); }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f5f9; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+        .step-connector { position: absolute; left: 24px; top: 40px; bottom: -20px; width: 2px; background-color: #e2e8f0; z-index: 0; }
+        .last-step .step-connector { display: none; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+    <!-- Navbar -->
+    <nav class="bg-white/95 backdrop-blur shadow-sm border-b border-slate-200 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex items-center gap-3">
+                    <div class="bg-blue-900 text-white p-2 rounded-lg shadow-lg">
+                        <i data-lucide="building-2" class="w-6 h-6"></i>
+                    </div>
+                    <div class="leading-tight">
+                        <h1 class="font-bold text-slate-900 text-lg">Portal AI JPBDNS</h1>
+                        <p class="text-xs text-slate-500 font-medium tracking-wide">JABATAN PERANCANGAN BANDAR DAN DESA</p>
+                    </div>
+                </div>
+                <div class="hidden xl:flex space-x-6 text-sm font-semibold text-slate-600">
+                    <a href="#asas-ai" class="hover:text-blue-700 transition">Asas AI</a>
+                    <a href="#prompting" class="hover:text-blue-700 transition">Teknik Prompt</a>
+                    <a href="#galeri" class="hover:text-blue-700 transition">Galeri Prompt</a>
+                    <a href="#analisis" class="hover:text-blue-700 transition">Analisis Dokumen</a>
+                    <a href="#automasi" class="hover:text-blue-700 transition">GAS (Automasi)</a>
+                </div>
+                <a href="#galeri" class="bg-blue-600 text-white px-5 py-2 rounded-full text-sm font-bold hover:bg-blue-700 transition shadow-md hover:shadow-lg flex items-center gap-2">
+                    <i data-lucide="zap" class="w-4 h-4"></i> Mula Guna
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="bg-gradient-to-br from-slate-900 to-blue-900 text-white py-20 relative overflow-hidden">
+        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-20"></div>
+        <div class="absolute top-0 right-0 -mt-20 -mr-20 w-96 h-96 bg-blue-500 rounded-full blur-3xl opacity-20 animate-pulse"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 relative z-10 text-center">
+            <span class="inline-block py-1 px-4 rounded-full bg-blue-800/50 border border-blue-400/30 text-blue-200 text-xs font-bold tracking-wider mb-6">REVOLUSI DIGITAL SEKTOR AWAM</span>
+            <h1 class="text-4xl md:text-6xl font-extrabold mb-6 tracking-tight leading-tight">
+                Memperkasa Perkhidmatan <br><span class="text-blue-400">Melalui Kepintaran AI</span>
+            </h1>
+            <p class="text-lg text-slate-300 max-w-3xl mx-auto mb-10 leading-relaxed">
+                "Teknologi hanyalah alat untuk membantu kita melakukan sesuatu dengan lebih pantas, mudah dan murah – menguasainya ialah cara kita membuka potensi sepenuhnya."
+            </p>
+            
+            <!-- Process Flow Infographic (CSS) -->
+            <div class="flex flex-col md:flex-row items-center justify-center gap-4 mt-12 text-sm font-mono">
+                <div class="bg-white/10 backdrop-blur border border-white/20 p-4 rounded-xl flex flex-col items-center w-full md:w-48">
+                    <i data-lucide="message-square" class="mb-2 text-yellow-400"></i>
+                    <span class="font-bold">INPUT</span>
+                    <span class="text-xs text-slate-400">(Prompt/Data)</span>
+                </div>
+                <i data-lucide="arrow-right" class="hidden md:block text-slate-500"></i>
+                <i data-lucide="arrow-down" class="md:hidden text-slate-500"></i>
+                <div class="bg-blue-600/30 backdrop-blur border border-blue-400/50 p-4 rounded-xl flex flex-col items-center w-full md:w-48 shadow-[0_0_15px_rgba(59,130,246,0.5)]">
+                    <i data-lucide="cpu" class="mb-2 text-blue-200"></i>
+                    <span class="font-bold">PROSES</span>
+                    <span class="text-xs text-blue-200">(Model/Logik)</span>
+                </div>
+                <i data-lucide="arrow-right" class="hidden md:block text-slate-500"></i>
+                <i data-lucide="arrow-down" class="md:hidden text-slate-500"></i>
+                <div class="bg-white/10 backdrop-blur border border-white/20 p-4 rounded-xl flex flex-col items-center w-full md:w-48">
+                    <i data-lucide="check-circle" class="mb-2 text-green-400"></i>
+                    <span class="font-bold">OUTPUT</span>
+                    <span class="text-xs text-slate-400">(Hasil Konsisten)</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 py-16 space-y-24">
+
+        <!-- SECTION 1: ASAS & CABANG AI -->
+        <section id="asas-ai" class="scroll-mt-28">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-slate-900">Memahami Ekosistem AI</h2>
+                <p class="text-slate-600 mt-2">AI bukan satu teknologi tunggal, tetapi satu bidang luas dengan pelbagai cabang.</p>
+            </div>
+
+            <!-- Infografik Cabang AI -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="group bg-white p-6 rounded-2xl shadow-sm border border-slate-200 hover:border-blue-500 transition hover:-translate-y-1">
+                    <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center text-2xl mb-4 group-hover:bg-blue-600 group-hover:text-white transition">🧠</div>
+                    <h3 class="font-bold text-lg mb-2">Machine Learning</h3>
+                    <p class="text-sm text-slate-500">Mesin belajar daripada data tanpa diprogram secara eksplisit. Asas kepada kebanyakan AI hari ini.</p>
+                </div>
+                <div class="group bg-white p-6 rounded-2xl shadow-sm border border-slate-200 hover:border-blue-500 transition hover:-translate-y-1">
+                    <div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center text-2xl mb-4 group-hover:bg-purple-600 group-hover:text-white transition">🗣</div>
+                    <h3 class="font-bold text-lg mb-2">NLP (Bahasa)</h3>
+                    <p class="text-sm text-slate-500">Memahami dan menjana bahasa manusia. Contoh: ChatGPT, Terjemahan, Analisis Sentimen.</p>
+                </div>
+                <div class="group bg-white p-6 rounded-2xl shadow-sm border border-slate-200 hover:border-blue-500 transition hover:-translate-y-1">
+                    <div class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center text-2xl mb-4 group-hover:bg-green-600 group-hover:text-white transition">👁</div>
+                    <h3 class="font-bold text-lg mb-2">Computer Vision</h3>
+                    <p class="text-sm text-slate-500">Melihat seperti manusia. Contoh: Analisis peta dron, pengecaman objek dalam imej.</p>
+                </div>
+                <div class="group bg-white p-6 rounded-2xl shadow-sm border border-slate-200 hover:border-blue-500 transition hover:-translate-y-1">
+                    <div class="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center text-2xl mb-4 group-hover:bg-orange-600 group-hover:text-white transition">🤖</div>
+                    <h3 class="font-bold text-lg mb-2">Robotics</h3>
+                    <p class="text-sm text-slate-500">AI yang bertindak secara fizikal di dunia nyata. Contoh: Robot pemasangan, kenderaan autonomi.</p>
+                </div>
+                <!-- Highlight Generative AI -->
+                <div class="md:col-span-2 bg-gradient-to-r from-blue-600 to-indigo-600 p-6 rounded-2xl shadow-lg text-white flex flex-col md:flex-row items-center gap-6">
+                    <div class="text-5xl">🎨</div>
+                    <div>
+                        <h3 class="font-bold text-xl mb-2">Generative AI (Fokus Utama)</h3>
+                        <p class="text-blue-100 text-sm mb-4">Cabang AI yang mampu <strong>mencipta kandungan baharu</strong> seperti teks, imej, audio atau video berdasarkan corak data sedia ada.</p>
+                        <div class="flex gap-2 text-xs font-mono">
+                            <span class="bg-white/20 px-2 py-1 rounded">Text-to-Text</span>
+                            <span class="bg-white/20 px-2 py-1 rounded">Text-to-Image</span>
+                            <span class="bg-white/20 px-2 py-1 rounded">Text-to-Video</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Comparison Table (LLMs) -->
+            <div class="mt-16 bg-white rounded-2xl shadow-lg overflow-hidden border border-slate-200">
+                <div class="bg-slate-900 px-6 py-4 border-b border-slate-800">
+                    <h3 class="text-white font-bold flex items-center gap-2"><i data-lucide="cpu"></i> Perbandingan Model Bahasa Besar (LLM)</h3>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-sm text-left">
+                        <thead class="bg-slate-50 text-slate-700 uppercase font-bold text-xs">
+                            <tr>
+                                <th class="px-6 py-3">Model</th>
+                                <th class="px-6 py-3">Kekuatan Utama</th>
+                                <th class="px-6 py-3">Had Token (Konteks)</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-100">
+                            <tr class="hover:bg-slate-50">
+                                <td class="px-6 py-4 font-bold text-green-700">ChatGPT (GPT-4o)</td>
+                                <td class="px-6 py-4">Penaakulan logik, analisis data, dan populariti meluas.</td>
+                                <td class="px-6 py-4">~128k token</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50">
+                                <td class="px-6 py-4 font-bold text-blue-700">Google Gemini 1.5</td>
+                                <td class="px-6 py-4">Integrasi Google Workspace, analisis video/dokumen panjang.</td>
+                                <td class="px-6 py-4">1 Juta - 2 Juta token</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50">
+                                <td class="px-6 py-4 font-bold text-orange-700">Claude 3.5 Sonnet</td>
+                                <td class="px-6 py-4">Penulisan semula jadi, pengekodan (coding), kurang "robotik".</td>
+                                <td class="px-6 py-4">~200k token</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50">
+                                <td class="px-6 py-4 font-bold text-purple-700">MS Copilot</td>
+                                <td class="px-6 py-4">Keselamatan data enterpris, integrasi Microsoft 365 (Office).</td>
+                                <td class="px-6 py-4">Bergantung pada lesen</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: SENI PROMPTING -->
+        <section id="prompting" class="scroll-mt-28">
+            <div class="bg-indigo-50 rounded-3xl p-8 md:p-12 border border-indigo-100 relative overflow-hidden">
+                <div class="relative z-10">
+                    <h2 class="text-3xl font-bold text-indigo-900 mb-6 text-center">Prompting: Cara Bercakap dengan AI</h2>
+                    <p class="text-center text-indigo-700 mb-10 max-w-2xl mx-auto">
+                        AI bukan bomoh. Ia perlukan arahan jelas. Gunakan formula <strong>R-T-C-O</strong> untuk hasil terbaik.
+                    </p>
+
+                    <!-- RTCO Visual Blocks -->
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-10">
+                        <div class="bg-white p-6 rounded-xl shadow-sm border-t-4 border-blue-500">
+                            <span class="text-4xl font-black text-slate-200 absolute top-4 right-4">R</span>
+                            <h4 class="font-bold text-blue-700 text-lg">Role (Peranan)</h4>
+                            <p class="text-xs text-slate-600 mt-2">Siapa AI ini?</p>
+                            <div class="mt-3 text-xs font-mono bg-slate-100 p-2 rounded">"Bertindak sebagai Pegawai Perancang Bandar..."</div>
+                        </div>
+                        <div class="bg-white p-6 rounded-xl shadow-sm border-t-4 border-green-500">
+                            <span class="text-4xl font-black text-slate-200 absolute top-4 right-4">T</span>
+                            <h4 class="font-bold text-green-700 text-lg">Task (Tugasan)</h4>
+                            <p class="text-xs text-slate-600 mt-2">Apa perlu dibuat?</p>
+                            <div class="mt-3 text-xs font-mono bg-slate-100 p-2 rounded">"Sediakan draf surat maklum balas..."</div>
+                        </div>
+                        <div class="bg-white p-6 rounded-xl shadow-sm border-t-4 border-yellow-500">
+                            <span class="text-4xl font-black text-slate-200 absolute top-4 right-4">C</span>
+                            <h4 class="font-bold text-yellow-700 text-lg">Context (Konteks)</h4>
+                            <p class="text-xs text-slate-600 mt-2">Latar belakang?</p>
+                            <div class="mt-3 text-xs font-mono bg-slate-100 p-2 rounded">"Projek perumahan ini ditolak kerana..."</div>
+                        </div>
+                        <div class="bg-white p-6 rounded-xl shadow-sm border-t-4 border-purple-500">
+                            <span class="text-4xl font-black text-slate-200 absolute top-4 right-4">O</span>
+                            <h4 class="font-bold text-purple-700 text-lg">Output (Format)</h4>
+                            <p class="text-xs text-slate-600 mt-2">Bentuk hasil?</p>
+                            <div class="mt-3 text-xs font-mono bg-slate-100 p-2 rounded">"Format rasmi, nada tegas tapi sopan."</div>
+                        </div>
+                    </div>
+
+                    <!-- Pro Tips -->
+                    <div class="bg-indigo-900 text-white p-6 rounded-xl">
+                        <h4 class="font-bold mb-3 flex items-center gap-2"><i data-lucide="star"></i> Tips Pro daripada Fasilitator:</h4>
+                        <ul class="grid md:grid-cols-3 gap-4 text-sm text-indigo-200">
+                            <li><strong class="text-white block mb-1">"Apa pendapat anda?"</strong> Minta AI semak semula jawapannya sendiri.</li>
+                            <li><strong class="text-white block mb-1">"Ada apa-apa yang tertinggal?"</strong> Minta AI cari lompang dalam arahan anda.</li>
+                            <li><strong class="text-white block mb-1">"Bantu saya tulis prompt"</strong> Suruh AI tulis arahan yang lebih baik untuk dirinya.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: GALERI PROMPT -->
+        <section id="galeri" class="scroll-mt-28">
+            <div class="flex items-center gap-4 mb-8 border-b border-slate-200 pb-4">
+                <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold text-xl">1</div>
+                <div>
+                    <h3 class="text-2xl font-bold text-slate-900">Galeri Prompt: Dokumen Rasmi</h3>
+                    <p class="text-sm text-slate-500">Salin dan ubah suai (Text-to-Text).</p>
+                </div>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-6 h-[500px] overflow-y-auto pr-2 border rounded-xl p-4 bg-slate-50">
+                <!-- Prompt Items (10 Examples) -->
+                <div class="bg-white p-4 rounded-lg shadow-sm border border-slate-200">
+                    <h5 class="font-bold text-blue-800 text-sm mb-2">1. Surat Penolakan KM (OSC)</h5>
+                    <p class="text-xs font-mono text-slate-600">"Bertindak sebagai Pegawai Perancang. Sediakan surat rasmi menolak permohonan KM [No Rujukan] kerana ketidakpatuhan anjakan bangunan 20 kaki seperti dalam RT Daerah."</p>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow-sm border border-slate-200">
+                    <h5 class="font-bold text-blue-800 text-sm mb-2">2. Minit Mesyuarat</h5>
+                    <p class="text-xs font-mono text-slate-600">"Tukar nota kasar berikut kepada format Minit Mesyuarat Rasmi Kerajaan dengan kolum Perkara, Perbincangan, Tindakan: [Paste Nota Kasar]"</p>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow-sm border border-slate-200">
+                    <h5 class="font-bold text-blue-800 text-sm mb-2">3. Memo Bajet</h5>
+                    <p class="text-xs font-mono text-slate-600">"Tulis memo dalaman memohon peruntukan tambahan RM5000 untuk program Townhall RKK, justifikasi: peningkatan kehadiran penduduk."</p>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow-sm border border-slate-200">
+                    <h5 class="font-bold text-blue-800 text-sm mb-2">4. Teks Ucapan Pengarah</h5>
+                    <p class="text-xs font-mono text-slate-600">"Sediakan teks ucapan perasmian 5 minit untuk Pengarah JPBD sempena Hari Perancangan Bandar. Tema: Bandar Mampan. Masukkan pantun."</p>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow-sm border border-slate-200">
+                    <h5 class="font-bold text-blue-800 text-sm mb-2">5. Jawapan Aduan Awam</h5>
+                    <p class="text-xs font-mono text-slate-600">"Draf emel balas kepada aduan penduduk Taman Mawar mengenai kacau ganggu bengkel haram. Nyatakan tindakan penguatkuasaan telah diambil."</p>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow-sm border border-slate-200">
+                    <h5 class="font-bold text-blue-800 text-sm mb-2">6. Kenyataan Media</h5>
+                    <p class="text-xs font-mono text-slate-600">"Sediakan kenyataan media untuk pelanjutan tempoh bantahan awam Draf RKK Seremban. Nada profesional dan mengalu-alukan pandangan."</p>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow-sm border border-slate-200">
+                    <h5 class="font-bold text-blue-800 text-sm mb-2">7. Ringkasan Laporan Teknikal</h5>
+                    <p class="text-xs font-mono text-slate-600">"Ringkaskan Laporan Penilaian Kesan Sosial (SIA) ini kepada 5 poin utama untuk bacaan YB EXCO."</p>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow-sm border border-slate-200">
+                    <h5 class="font-bold text-blue-800 text-sm mb-2">8. E-mel Jemputan Mesyuarat</h5>
+                    <p class="text-xs font-mono text-slate-600">"Tulis emel jemputan mesyuarat penyelarasan teknikal kepada JKR, JPS dan TNB. Tarikh: [Tarikh], Tempat: Bilik Gerakan."</p>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow-sm border border-slate-200">
+                    <h5 class="font-bold text-blue-800 text-sm mb-2">9. Senarai Semak (Checklist)</h5>
+                    <p class="text-xs font-mono text-slate-600">"Bina checklist semakan dokumen bagi permohonan Tukar Syarat Tanah untuk kegunaan kaunter OSC."</p>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow-sm border border-slate-200">
+                    <h5 class="font-bold text-blue-800 text-sm mb-2">10. Kertas Kerja Program</h5>
+                    <p class="text-xs font-mono text-slate-600">"Sediakan rangka Kertas Kerja bagi Bengkel Pemantapan AI Jabatan. Masukkan objektif, tentatif, dan implikasi kewangan."</p>
+                </div>
+            </div>
+
+            <!-- Visual Prompts (Image/Video) -->
+            <div class="flex items-center gap-4 mb-8 mt-12 border-b border-slate-200 pb-4">
+                <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center text-purple-600 font-bold text-xl">2</div>
+                <div>
+                    <h3 class="text-2xl font-bold text-slate-900">Galeri Prompt: Visual (Imej & Video)</h3>
+                    <p class="text-sm text-slate-500">Gunakan di Gemini (Imagen), ChatGPT (DALL-E), atau Veo.</p>
+                </div>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-6 h-[400px] overflow-y-auto pr-2 border rounded-xl p-4 bg-slate-50">
+                 <div class="bg-white p-4 rounded-lg shadow-sm border border-slate-200">
+                    <h5 class="font-bold text-purple-800 text-sm mb-2">1. Konsep Taman Futuristik</h5>
+                    <p class="text-xs font-mono text-slate-600">"A photorealistic architectural rendering of a futuristic public park in Seremban with solar gazebos and lush greenery. Golden hour lighting."</p>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow-sm border border-slate-200">
+                    <h5 class="font-bold text-purple-800 text-sm mb-2">2. Drone Shot (Video)</h5>
+                    <p class="text-xs font-mono text-slate-600">"Cinematic drone shot flying over a modern Malaysian township with a central lake. Sunny weather, moving forward slowly."</p>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow-sm border border-slate-200">
+                    <h5 class="font-bold text-purple-800 text-sm mb-2">3. Hentian Bas Pintar</h5>
+                    <p class="text-xs font-mono text-slate-600">"Design concept of a modern eco-friendly bus stop in Malaysia with green roof and digital panel. Minimalist style."</p>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow-sm border border-slate-200">
+                    <h5 class="font-bold text-purple-800 text-sm mb-2">4. Poster Hari Perancangan</h5>
+                    <p class="text-xs font-mono text-slate-600">"Vector art style poster for 'Hari Perancangan Bandar'. Diverse community planting trees in a smart city. Colors: Blue, Green, Orange."</p>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow-sm border border-slate-200">
+                    <h5 class="font-bold text-purple-800 text-sm mb-2">5. Simulasi Banjir (Video)</h5>
+                    <p class="text-xs font-mono text-slate-600">"Realistic simulation of river water rising in a retention pond park during rain. Educational angle."</p>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow-sm border border-slate-200">
+                    <h5 class="font-bold text-purple-800 text-sm mb-2">6. Rejuvenasi Lorong</h5>
+                    <p class="text-xs font-mono text-slate-600">"Before and after concept art of a dirty back alley transformed into a vibrant art lane with murals and cafes."</p>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow-sm border border-slate-200">
+                    <h5 class="font-bold text-purple-800 text-sm mb-2">7. Pasar Awam Moden</h5>
+                    <p class="text-xs font-mono text-slate-600">"Interior 3D view of a clean, ventilated modern wet market in Malaysia. Natural skylight."</p>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow-sm border border-slate-200">
+                    <h5 class="font-bold text-purple-800 text-sm mb-2">8. Ikon Bandaraya</h5>
+                    <p class="text-xs font-mono text-slate-600">"3D glass texture logo of 'Seremban' incorporating Minangkabau roof elements. Blue lighting."</p>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow-sm border border-slate-200">
+                    <h5 class="font-bold text-purple-800 text-sm mb-2">9. Walkthrough Taman (Video)</h5>
+                    <p class="text-xs font-mono text-slate-600">"First-person perspective walking through a botanical garden. Birds flying, leaves swaying. 4k resolution."</p>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow-sm border border-slate-200">
+                    <h5 class="font-bold text-purple-800 text-sm mb-2">10. Trafik Bandar (Video)</h5>
+                    <p class="text-xs font-mono text-slate-600">"Time-lapse of a busy smart city intersection with smooth traffic flow and pedestrians crossing. Isometric view."</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: ANALISIS DOKUMEN (NotebookLM) -->
+        <section id="analisis" class="bg-slate-100 -mx-4 px-4 py-16">
+            <div class="max-w-7xl mx-auto">
+                <div class="flex flex-col md:flex-row items-center gap-8">
+                    <div class="md:w-1/2">
+                        <h2 class="text-3xl font-bold text-slate-900 mb-4">Analisis Dokumen dengan NotebookLM</h2>
+                        <p class="text-slate-600 mb-6">Muat naik Akta, Rancangan Tempatan (RT), atau Pekeliling ke dalam <strong>NotebookLM</strong> dan gunakan prompt ini untuk analisis pantas.</p>
+                        <div class="space-y-3">
+                            <div class="bg-white p-3 rounded shadow-sm text-sm border-l-4 border-green-500">
+                                <strong>Ringkasan Eksekutif:</strong> "Ringkaskan 5 teras utama pembangunan dalam Draf RT ini."
+                            </div>
+                            <div class="bg-white p-3 rounded shadow-sm text-sm border-l-4 border-green-500">
+                                <strong>Carian Klausa:</strong> "Apakah seksyen dalam Akta 172 yang menyentuh tentang kuasa meroboh bangunan haram?"
+                            </div>
+                            <div class="bg-white p-3 rounded shadow-sm text-sm border-l-4 border-green-500">
+                                <strong>Perbandingan:</strong> "Bandingkan kadar densiti perumahan dalam Garis Panduan 2010 vs 2024 ini."
+                            </div>
+                            <div class="bg-white p-3 rounded shadow-sm text-sm border-l-4 border-green-500">
+                                <strong>Jadual Data:</strong> "Ekstrak data guna tanah dari Bab 3 dan susun dalam format jadual."
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2 flex justify-center">
+                        <div class="bg-white p-6 rounded-2xl shadow-xl border border-slate-200 max-w-sm">
+                            <div class="flex items-center gap-3 mb-4">
+                                <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-blue-600"><i data-lucide="file-text"></i></div>
+                                <h4 class="font-bold">Aktiviti NotebookLM</h4>
+                            </div>
+                            <p class="text-sm text-slate-600 mb-4">Langkah mudah:</p>
+                            <ol class="list-decimal pl-5 text-sm space-y-2 text-slate-700">
+                                <li>Buka <a href="https://notebooklm.google" class="text-blue-600 underline">notebooklm.google</a></li>
+                                <li>Buat Notebook baru.</li>
+                                <li>Upload PDF (contoh: Draf RT).</li>
+                                <li>Tanya soalan berdasarkan dokumen!</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 5: AUTOMASI (GAS) - STEP BY STEP -->
+        <section id="automasi" class="scroll-mt-28">
+            <div class="bg-slate-900 rounded-3xl p-8 md:p-16 text-white shadow-2xl">
+                <div class="text-center mb-12">
+                    <span class="text-green-400 font-mono text-sm">>> English is the new coding language</span>
+                    <h2 class="text-3xl md:text-4xl font-bold mt-2">Automasi dengan Google Apps Script (GAS)</h2>
+                    <p class="text-slate-400 mt-4 max-w-2xl mx-auto">Anda tidak perlu jadi programmer. Minta ChatGPT/Gemini tulis kod, dan anda hanya perlu "Copy & Paste".</p>
+                </div>
+
+                <!-- Step-by-Step Guide Graphic -->
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 relative">
+                    <!-- Step 1 -->
+                    <div class="relative z-10 group">
+                        <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center font-bold text-xl mb-4 group-hover:scale-110 transition shadow-[0_0_20px_rgba(37,99,235,0.5)]">1</div>
+                        <h4 class="font-bold text-lg mb-2">Dapatkan Kod</h4>
+                        <p class="text-sm text-slate-400">Minta AI: "Write a Google Apps Script to send an email when Cell C5 is edited." Salin kod tersebut.</p>
+                        <div class="hidden lg:block step-connector"></div>
+                    </div>
+                    <!-- Step 2 -->
+                    <div class="relative z-10 group">
+                        <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center font-bold text-xl mb-4 group-hover:scale-110 transition shadow-[0_0_20px_rgba(37,99,235,0.5)]">2</div>
+                        <h4 class="font-bold text-lg mb-2">Buka Script Editor</h4>
+                        <p class="text-sm text-slate-400">Di Google Sheets, pergi ke menu: <br><code class="bg-slate-800 px-1 rounded">Extensions</code> > <code class="bg-slate-800 px-1 rounded">Apps Script</code>.</p>
+                        <div class="hidden lg:block step-connector"></div>
+                    </div>
+                    <!-- Step 3 -->
+                    <div class="relative z-10 group">
+                        <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center font-bold text-xl mb-4 group-hover:scale-110 transition shadow-[0_0_20px_rgba(37,99,235,0.5)]">3</div>
+                        <h4 class="font-bold text-lg mb-2">Paste & Save</h4>
+                        <p class="text-sm text-slate-400">Padam kod asal (myFunction). Tampal (Paste) kod baru dari AI. Klik ikon Save (💾).</p>
+                        <div class="hidden lg:block step-connector"></div>
+                    </div>
+                    <!-- Step 4 -->
+                    <div class="relative z-10 group last-step">
+                        <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center font-bold text-xl mb-4 group-hover:scale-110 transition shadow-[0_0_20px_rgba(34,197,94,0.5)]">4</div>
+                        <h4 class="font-bold text-lg mb-2">Run & Authorize</h4>
+                        <p class="text-sm text-slate-400">Klik 'Run'. Google akan minta izin (Authorization). Pilih akaun > Advanced > Go to (Unsafe) > Allow.</p>
+                    </div>
+                </div>
+
+                <!-- Code Example -->
+                <div class="mt-16 bg-black/50 rounded-xl border border-white/10 p-6 font-mono text-xs md:text-sm overflow-x-auto">
+                    <div class="flex gap-2 mb-4 border-b border-white/10 pb-2">
+                        <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                        <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                        <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                        <span class="ml-auto text-slate-500">Code.gs</span>
+                    </div>
+                    <pre><code class="language-javascript">
+<span class="text-purple-400">function</span> <span class="text-blue-400">sendEmailReminder</span>() {
+  <span class="text-slate-500">// 1. Dapatkan Sheet</span>
+  <span class="text-purple-400">var</span> sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+  <span class="text-purple-400">var</span> emailAddress = sheet.getRange(<span class="text-green-400">"B2"</span>).getValue();
+  <span class="text-purple-400">var</span> message = sheet.getRange(<span class="text-green-400">"C2"</span>).getValue();
+  
+  <span class="text-slate-500">// 2. Hantar Emel</span>
+  GmailApp.sendEmail(emailAddress, <span class="text-green-400">"Peringatan Automatik"</span>, message);
+}
+                    </code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Etika & Footer -->
+        <section class="text-center max-w-3xl mx-auto space-y-6 pt-10">
+            <div class="p-6 bg-yellow-50 border border-yellow-200 rounded-lg text-yellow-800 text-sm">
+                <h4 class="font-bold flex items-center justify-center gap-2 mb-2"><i data-lucide="alert-triangle"></i> Etika & Keselamatan Data</h4>
+                <p>Jangan masukkan dokumen berstatus <strong>RAHSIA BESAR / RAHSIA</strong> ke dalam platform AI awam. Sentiasa semak fakta (Human-in-the-loop). AI boleh melakukan halusinasi.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER DIKEMASKINI -->
+    <footer class="bg-slate-900 text-slate-400 py-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="text-center md:text-left">
+                <h2 class="text-white font-bold text-lg flex items-center gap-2 justify-center md:justify-start">
+                    <i data-lucide="bot"></i> Portal AI JPBDNS
+                </h2>
+                <p class="text-sm mt-1">Memacu transformasi digital perancangan bandar.</p>
+            </div>
+            <!-- Bahagian Maklumat Unit IT (Ganti Pautan) -->
+            <div class="text-center md:text-right text-sm">
+                <p class="font-semibold text-white">Unit IT</p>
+                <p>Jabatan Perancangan Bandar Dan Desa Negeri Sembilan</p>
+            </div>
+        </div>
+        <div class="text-center text-xs mt-8 pt-8 border-t border-slate-800">
+            &copy; 2026 Jabatan Perancangan Bandar Dan Desa Negeri Sembilan.
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
